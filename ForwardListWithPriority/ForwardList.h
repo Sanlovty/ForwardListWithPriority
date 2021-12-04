@@ -10,6 +10,7 @@ class ForwardList
 	Node* head_;
 public:
 	ForwardList();
+	ForwardList(const ForwardList& other);
 	~ForwardList();
 
 	void pushBack(const int& data);

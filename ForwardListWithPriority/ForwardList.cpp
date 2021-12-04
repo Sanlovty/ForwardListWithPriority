@@ -4,6 +4,25 @@ ForwardList::ForwardList() : head_(nullptr)
 {
 }
 
+ForwardList::ForwardList(const ForwardList& other)
+{
+	if (other.isEmpty())
+	{
+		head_ = nullptr;
+		return;
+	}
+	head_ = new Node(other.front());
+	Node* myIt = head_;
+	Node* otherIt = other.head_;
+	while (otherIt->getNext() != nullptr)
+	{
+		otherIt = otherIt->getNext();
+		Node* newNode = new Node(otherIt->getData());
+		myIt->setNext(newNode);
+		myIt = myIt->getNext();
+	}
+}
+
 ForwardList::~ForwardList()
 {
 	while (!isEmpty())
