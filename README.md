@@ -16,7 +16,7 @@
 `pushByPriorityAsc` - по возрастанию и `pushByPriorityDesc` - убыванию
 - блок, представленный ниже нужен для отлавливания ошибок, которые выбрасывают методы класса `ForwardList`
 
-    ```
+    ```c++
     try {
      // код
     } catch (const exception& ex) {
