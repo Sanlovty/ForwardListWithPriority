@@ -57,6 +57,15 @@ int main()
 					isFound = false;
 				}
 			}
+			else
+			{
+				if (list.isEmpty())
+				{
+					output << data << ' ';
+					output << "There were no any even number";
+					break;
+				}
+			}
 			output << data << ' ';
 		}
 		output.close();
