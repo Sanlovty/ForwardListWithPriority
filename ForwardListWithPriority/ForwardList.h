@@ -17,6 +17,9 @@ public:
 	void popFront();
 	void popBack();
 
+	void pushByPriorityAsc(const int& data); // По возрастанию
+	void pushByPriorityDesc(const int& data); // По убыванию
+
 	bool isEmpty() const;
 	int front() const;
 };

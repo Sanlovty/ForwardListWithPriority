@@ -73,6 +73,62 @@ void ForwardList::popBack()
 	delete willBeDeleted;
 }
 
+void ForwardList::pushByPriorityAsc(const int& data)
+{
+	if (isEmpty() || head_->getData() > data)
+	{
+		pushFront(data);
+		return;
+	}
+	if (head_->getNext() == nullptr)
+	{
+		if (head_->getData() > data)
+		{
+			pushFront(data);
+		}
+		else
+		{
+			pushBack(data);
+		}
+		return;
+	}
+	Node* it = head_;
+	while (it->getNext() != nullptr && it->getNext()->getData() < data)
+	{
+		it = it->getNext();
+	}
+	Node* newNode = new Node(data, it->getNext());
+	it->setNext(newNode);
+}
+
+void ForwardList::pushByPriorityDesc(const int& data)
+{
+	if (isEmpty() || head_->getData() < data)
+	{
+		pushFront(data);
+		return;
+	}
+	if (head_->getNext() == nullptr)
+	{
+		if (head_->getData() < data)
+		{
+			pushFront(data);
+		}
+		else
+		{
+			pushBack(data);
+		}
+		return;
+	}
+	Node* it = head_;
+	while (it->getNext() != nullptr && it->getNext()->getData() > data)
+	{
+		it = it->getNext();
+	}
+	Node* newNode = new Node(data, it->getNext());
+	it->setNext(newNode);
+}
+
 bool ForwardList::isEmpty() const
 {
 	return head_ == nullptr;
